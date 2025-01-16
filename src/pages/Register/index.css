@@ -1,0 +1,135 @@
+.container-login-register {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    padding-top: 70px;
+    background-color: rgb(118, 109, 251);
+}
+
+h2 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.form {
+    width: 680px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+    label {
+        font-size: 19px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: rgb(35, 22, 224);
+    }
+
+    input {
+        width: 100%;
+        height: 45px;
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.4px;
+        margin-bottom: 10px;
+        border: 2px solid rgb(35, 22, 224);
+    }
+
+    .password {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        input {
+            width: 640px;
+            height: 45px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            margin-bottom: 10px;
+            position: absolute;
+            border: 2px solid rgb(35, 22, 224);
+        }
+
+        img {
+            width: 40px;
+            height: 43px;
+            background: none;
+            position: relative;
+            left: 590px;
+        }
+    }
+
+    .rePassword {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        input {
+            width: 640px;
+            height: 45px;
+            padding: 10px;
+            border: none;
+            outline: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            margin-bottom: 10px;
+            position: absolute;
+            border: 2px solid rgb(35, 22, 224);
+        }
+
+        img {
+            width: 40px;
+            height: 43px;
+            background: none;
+            position: relative;
+            left: 590px;
+        }
+    }
+
+    .btn {
+        margin-top: 20px;
+        width: 100%;
+        height: 40px;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        background-color: rgb(36, 26, 182);
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+    }
+
+    .link {
+        text-decoration: none;
+        font-size: 18px;
+        color: #fff;
+        margin-left: 430px;
+        margin-top: 12px;
+        color: rgb(36, 26, 182);
+    }
+
+    .link:hover {
+        text-decoration: underline;
+    }
+}

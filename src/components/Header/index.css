@@ -1,0 +1,38 @@
+.container-header {
+    width: 100%;
+    background-color: rgb(71, 59, 246);
+}
+
+.header {
+    width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    gap: 25px;
+    padding: 10px;
+
+    img {
+        width: 80px;
+        height: 70px;
+        border-radius: 5px;
+        margin-left: 80px;
+    }
+
+    .pages {
+        width: 750px;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 110px;
+        margin-top: 8px;
+
+        .link {
+            text-decoration: none;
+            padding: 10px;
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    }
+}
