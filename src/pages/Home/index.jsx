@@ -1,23 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './index.css'
 import ButtonIcon from '../../assets/images/more.svg'
 import { NavLink } from 'react-router-dom'
+import { Toaster, toast } from 'react-hot-toast'
 
 function Home() {
+  const [datas, setDatas] = useState([])
+
+  useEffect(() => {
+    const articlesData = localStorage.getItem("articles")
+    if (articlesData) {
+      setDatas(JSON.parse(articlesData))
+    }
+  }, [])
+
+  function handleDeleteArticle(event, index) {
+    event.preventDefault()
+
+    const deleteArticle = confirm("Rostdan ham o'chirmoqchimisiz?")
+    if (deleteArticle) {
+      const deleteArticleIndex = datas.filter((_, i) => i !== index)
+      setDatas(deleteArticleIndex)
+      localStorage.setItem("articles", JSON.stringify(deleteArticleIndex))
+      toast.error("Article o'chirildi!")
+    }
+  }
+
   return (
     <div className='container-home'>
       <h1 className='articles-title'>Articles</h1>
 
       <div className="articles">
-        <div className="article">
-          <h2 className="title-about">Alisher Navoiy haqida</h2>
-          <h2 className='author'>Alisher Navoiy</h2>
-          <p className="describtion-one">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui optio earum alias cumque nobis id!</p>
-          <p className='describtion'>Alisher Navoiy ((chigʻatoycha: علیشیر نوایی‎[1]; forscha: نظام‌الدین علی‌شیر نوایی;) 9-fevral 1441-yildan 3-yanvar 1501-yil) — Temuriylar davridagi turkiy xalqlarning shoiri[2], mutafakkir va davlat arbobi[3][4][5][6]. Gʻarbda Chigʻatoy adabiyotining buyuk vakili deb qaraladi.Tarixchi Ali Yazdiy nazariga tushgan, shoir Lutfiy yosh shoir isteʼdodiga yuqori baho bergan, Kamol Turbatiy eʼtirofini qozongan. Sayyid Hasan Ardasher, Pahlavon Muhammad kabi ustozlardan taʼlim olgan, Abdurahmon Jomiy bilan ijodiy hamkorlikda boʻlgan. Navoiy 1469-yilgacha temuriylar orasidagi ichki nizolar sababli Hirotdan yiroqroqda yashagan.</p>
-          <NavLink className="more" to="/articleDetails/:id">
-            <h4>Batafsil</h4>
-            <img src={ButtonIcon} alt="" />
-          </NavLink>
+        <div className="articles">
+          {datas.length > 0 ? (
+            datas.map((data, index) => (
+              <div key={index} className="article">
+                <h2 className="title-about">{data.about}</h2>
+                <h2 className="author">{data.author}</h2>
+                <p className="description-one">{data.description}</p>
+                <p className="description">{data.information}</p>
+                <NavLink className="more" to={`/articleDetails/${index}`}>
+                  <h4>Batafsil</h4>
+                  <img src={ButtonIcon} alt="more" />
+                </NavLink>
+
+                <button onClick={() => handleDeleteArticle(event, index)} className='button-one'>Delete</button>
+                <Toaster />
+              </div>
+            ))
+          ) : (
+            <p className="no-article">Hozircha hech qanday maqola mavjud emas.</p>
+          )}
         </div>
       </div>
     </div>

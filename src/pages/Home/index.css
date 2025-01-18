@@ -45,7 +45,7 @@
             margin-bottom: 15px;
         }
 
-        .describtion-one {
+        .description-one {
             font-size: 22px;
             font-weight: 650;
             color: black;
@@ -53,7 +53,7 @@
             margin-bottom: 20px;
         }
 
-        .describtion {
+        .description-two {
             font-size: 18px;
             font-weight: 450;
             color: black;
@@ -85,5 +85,24 @@
                 padding-top: 5px;
             }
         }
+
+        .button-one {
+            margin-left: 1230px;
+            margin-top: 15px;
+            width: 120px;
+            height: 37px;
+            border: none;
+            border-radius: 8px;
+            background-color: red;
+            cursor: pointer;
+            color: #ffffff;
+            font-size: 20px;
+        }
     }
+}
+
+.no-article {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
 }

@@ -1,10 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import './index.css'
+import { Toaster, toast } from 'react-hot-toast'
+import { useParams } from 'react-router-dom'
 
 function ArticleDetails() {
   const [commit, setCommit] = useState("")
   const [comments, setComments] = useState([])
   const [editIndex, setEditIndex] = useState(null)
+  const [article, setArticle] = useState([])
+  const {id} = useParams()
+
+  useEffect(() => {
+    const articlesData = localStorage.getItem("articles")
+    if (articlesData) {
+      const parsedArticles = JSON.parse(articlesData)
+      setArticle(parsedArticles[id])
+    }
+  }, [id])
+
+  if (!article) {
+    return <p className='loading'>Loading...</p>
+  }
 
   useEffect(() => {
     const commits = localStorage.getItem("comments")
@@ -52,6 +68,7 @@ function ArticleDetails() {
       setComments([...comments, newComment]);
     }
 
+    toast.success("Comment muvaffaqiyatli qo'shildi!")
     setCommit("");
   }
 
@@ -61,6 +78,7 @@ function ArticleDetails() {
     if (deleteComment) {
       const deleteCommit = comments.filter((_, i) => i !== index);
       setComments(deleteCommit)
+      toast.error("Comment o'chirildi!")
     }
   }
 
@@ -74,10 +92,10 @@ function ArticleDetails() {
     <div className='container-articleId'>
       <h1 className="title">Article About</h1>
       <div className="container-articles">
-        <p><strong>About:</strong>{"  "} Alisher Navoiy haqida</p>
-        <p><strong>Author:</strong>{"  "} Alisher Navoiy</p>
-        <p><strong>Describtion:</strong>{"  "} Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui optio earum alias cumque nobis id!</p>
-        <p><strong>Information:</strong>{"  "} Alisher Navoiy ((chigʻatoycha: علیشیر نوایی‎[1]; forscha: نظام‌الدین علی‌شیر نوایی;) 9-fevral 1441-yildan 3-yanvar 1501-yil) — Temuriylar davridagi turkiy xalqlarning shoiri[2], mutafakkir va davlat arbobi[3][4][5][6]. Gʻarbda Chigʻatoy adabiyotining buyuk vakili deb qaraladi.Tarixchi Ali Yazdiy nazariga tushgan, shoir Lutfiy yosh shoir isteʼdodiga yuqori baho bergan, Kamol Turbatiy eʼtirofini qozongan. Sayyid Hasan Ardasher, Pahlavon Muhammad kabi ustozlardan taʼlim olgan, Abdurahmon Jomiy bilan ijodiy hamkorlikda boʻlgan. Navoiy 1469-yilgacha temuriylar orasidagi ichki nizolar sababli Hirotdan yiroqroqda yashagan.</p>
+        <p><strong>About:</strong>{"  "} {article.about}</p>
+        <p><strong>Author:</strong>{"  "} {article.author}</p>
+        <p><strong>Describtion:</strong>{"  "} {article.description}</p>
+        <p><strong>Information:</strong>{"  "} {article.information}</p>
       </div>
 
       <div className="comments">
@@ -85,6 +103,7 @@ function ArticleDetails() {
           <label htmlFor="commit">Biror bir comment yozishingiz mumkin!</label>
           <input value={commit} onChange={(e) => { setCommit(e.target.value) }} type="text" name="commit" id="commit" placeholder='Enter your comment...' />
           <button onClick={handleAddCommit} className="btnCommit">Add Comment</button>
+          <Toaster />
         </form>
 
         <div className="commits">
@@ -95,6 +114,7 @@ function ArticleDetails() {
                 <div className="right">
                   <div className="btns-commit">
                     <button onClick={() => handleEditComment(index)} className='btn-one'>Edit</button>
+                    <Toaster />
                     <button onClick={() => handleDeleteComment(index)} className='btn-two'>Delete</button>
                   </div>
                   <div className="time">

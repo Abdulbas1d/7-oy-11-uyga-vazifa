@@ -1,6 +1,6 @@
 .container-articleId {
     width: 100%;
-    background-color: rgb(204, 206, 245);
+    background-color: rgb(221, 222, 248);
     padding-bottom: 30px;
 }
 
@@ -11,6 +11,13 @@
     color: rgb(47, 47, 243);
 }
 
+.loading {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    padding-top: 100px;
+}
+
 .container-articles {
     width: 1240px;
     margin: 0 auto;
@@ -18,9 +25,10 @@
     flex-direction: column;
     gap: 10px;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1.2px solid rgb(95, 94, 94);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #f4f2f2;
 
     p {
         font-size: 25px;
@@ -48,6 +56,7 @@
         border-radius: 8px;
         margin-bottom: 25px;
         border: 1.5px solid rgb(95, 95, 94);
+        background-color: #f4f2f2;
 
         label {
             font-size: 22px;
@@ -93,9 +102,10 @@
             display: flex;
             justify-content: space-between;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 15px;
             border: 1.5px solid rgb(136, 134, 134);
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color: #f4f2f2;
 
             p {
                 font-size: 16px;
@@ -109,6 +119,7 @@
                 .btns-commit {
                     display: flex;
                     gap: 10px;
+                    margin-left: 32px;
 
                     button {
                         width: 60px;
