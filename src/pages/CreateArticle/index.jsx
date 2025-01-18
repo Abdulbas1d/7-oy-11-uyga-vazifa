@@ -141,7 +141,7 @@ function CreateArticle() {
               <h2 className="author">{data.author}</h2>
               <p className="description-one">{data.description}</p>
               <p className="description-two">{data.information}</p>
-              <NavLink className="more" to={`/articleDetails/:id`}>
+              <NavLink className="more" to={`/articleDetails/${index}`}>
                 <h4>Batafsil</h4>
                 <img src={ButtonIcon} alt="" />
               </NavLink>

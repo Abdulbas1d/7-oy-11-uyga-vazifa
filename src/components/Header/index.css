@@ -35,4 +35,23 @@
             text-decoration: underline;
         }
     }
+
+    .mode {
+        display: flex;
+        gap: 18px;
+        margin-top: 10px;
+        cursor: pointer;
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
+
+        h4 {
+            font-size: 20px;
+            margin-top: 5px;
+            letter-spacing: 0.3px;
+            color: #fff;
+        }
+    }
 }

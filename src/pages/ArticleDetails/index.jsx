@@ -14,7 +14,7 @@ function ArticleDetails() {
     const articlesData = localStorage.getItem("articles")
     if (articlesData) {
       const parsedArticles = JSON.parse(articlesData)
-      setArticle(parsedArticles[id])
+      setArticle(parsedArticles[Number(id)])
     }
   }, [id])
 
