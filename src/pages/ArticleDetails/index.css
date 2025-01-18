@@ -1,0 +1,144 @@
+.container-articleId {
+    width: 100%;
+    background-color: rgb(204, 206, 245);
+    padding-bottom: 30px;
+}
+
+.title {
+    text-align: center;
+    font-size: 40px;
+    padding-top: 10px;
+    color: rgb(47, 47, 243);
+}
+
+.container-articles {
+    width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1.2px solid rgb(95, 94, 94);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    p {
+        font-size: 25px;
+        letter-spacing: 0.5px;
+        font-weight: 400;
+
+        strong {
+            color: blue;
+        }
+    }
+}
+
+.comments {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 30px;
+    
+    .form-commit {
+        width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        border: 1.5px solid rgb(95, 95, 94);
+
+        label {
+            font-size: 22px;
+            font-weight: 450;
+            color: rgb(47, 47, 243);
+        }
+
+        input {
+            width: 100%;
+            height: 35px;
+            border-radius: 8px;
+            outline: none;
+            border: 2px solid rgb(47, 47, 243);
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .btnCommit {
+            width: 100%;
+            height: 35px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            background-color: rgb(47, 47, 243);
+            color: #fff;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+    }
+
+    .commits {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        .commit {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1.5px solid rgb(136, 134, 134);
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+            p {
+                font-size: 16px;
+                letter-spacing: 0.4px;
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+
+                .btns-commit {
+                    display: flex;
+                    gap: 10px;
+
+                    button {
+                        width: 60px;
+                        height: 30px;
+                        border: none;
+                        border-radius: 5px;
+                        color: #fff;
+                        font-size: 17px;
+                        cursor: pointer;
+                    }
+
+                    .btn-one {
+                        background-color: blue;
+                    }
+
+                    .btn-two {
+                        background-color: red;
+                    }
+                }
+
+                .time {
+                    display: flex;
+                    gap: 15px;
+                    margin-top: 10px;
+                    border: 1.5px solid grey;
+                    padding: 3px;
+                    border-radius: 4px;
+                    background-color: rgb(177, 180, 246);
+                }
+            }
+        }
+    }
+}

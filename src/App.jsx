@@ -15,28 +15,28 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const savedToken = localStorage.getItem('token'); 
+    const savedToken = localStorage.getItem('token');
     if (location.state?.token) {
       const newToken = location.state.token;
       setToken(newToken);
       localStorage.setItem('token', newToken);
-    } else if (savedToken) {
+    } else if (!savedToken) {
       navigate('/login');
     }
   }, [location.state, navigate]);
 
   function PrivateRoute({ isAuth, children }) {
     return isAuth ? children : <Navigate to="/login" />;
-  }
+  }  
 
   return (
     <div>
       <Routes>
         <Route path="/register" element={<AuthLayout><Register /></AuthLayout>} />
         <Route path="/login" element={<AuthLayout><Login /></AuthLayout>} />
-        <Route index element={<PrivateRoute isAuth={!!token}><MainLayout><Home /></MainLayout></PrivateRoute>}/>
-        <Route path="/createArticle" element = {<MainLayout><CreateArticle /></MainLayout>} />
-        <Route path="/articleDetails/:id" element = {<MainLayout><ArticleDetails /></MainLayout>} />
+        <Route index element={<PrivateRoute isAuth={!!token}><MainLayout><Home /></MainLayout></PrivateRoute>} />
+        <Route path="/createArticle" element={<PrivateRoute isAuth={!!token}><MainLayout><CreateArticle /></MainLayout></PrivateRoute>} />
+        <Route path="/articleDetails/:id" element={<PrivateRoute isAuth={!!token}><MainLayout><ArticleDetails /></MainLayout></PrivateRoute>} />
       </Routes>
     </div>
   );
